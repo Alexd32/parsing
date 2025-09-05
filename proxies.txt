@@ -1,0 +1,2 @@
+http://login:password@1.2.3.4:8000
+http://login:password@2.3.4.5:8000

@@ -1,0 +1,36 @@
+{
+  "site_id": 1,
+  "name": "Kartiny-po-nomeram Brushme",
+  "domain": "kartiny-po-nomeram.com",
+  "base_url": "https://kartiny-po-nomeram.com",
+  "enabled": true,
+  "technologies": {
+    "http": true,
+    "js_render": false,
+    "proxy": false
+  },
+  "fetch": {
+    "rate_limit": "1/4s",
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    }
+  },
+  "selectors": {
+    "list_page": {
+      "url": "https://kartiny-po-nomeram.com/almaznaya-mozaika/page/{page}/",
+      "item_link": "a.woocommerce-LoopProduct-link::attr(href)"
+    },
+    "item_page": {
+      "fields": {
+        "title": "h1.page-header-title",
+        "price": "p.price .woocommerce-Price-amount",
+        "currency": "p.price .woocommerce-Price-currencySymbol",
+        "availability": "p.stock",
+        "sku": "span.sku",
+        "image": "img.wp-post-image::attr(src)",
+        "short_description": ".woocommerce-product-details__short-description",
+        "description": "#tab-description"
+      }
+    }
+  }
+}
