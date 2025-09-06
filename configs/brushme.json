@@ -10,7 +10,7 @@
     "proxy": false
   },
   "fetch": {
-    "rate_limit": "1/4s",
+    "rate_limit": "1/1s",
     "headers": {
       "User-Agent": "Mozilla/5.0"
     }
