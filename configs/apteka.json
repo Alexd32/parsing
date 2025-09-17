@@ -1,0 +1,42 @@
+{
+  "name": "PlanetaZdorovo",
+  "domain": "planetazdorovo.ru",
+  "base_url": "https://planetazdorovo.ru",
+  "enabled": true,
+
+  "technologies": {
+    "http": true,
+    "js_render": true,
+    "proxy": false
+  },
+
+  "fetch": {
+    "rate_limit": "1/2s",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:115.0) Gecko/20100101 Firefox/115.0",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+      "Accept-Language": "ru-RU,ru;q=0.9,en;q=0.8",
+      "Referer": "https://planetazdorovo.ru/"
+    }
+  },
+
+  "strategy": "pagination",
+  "handler": "basic",
+
+  "selectors": {
+    "list_page": {
+  "url": "https://planetazdorovo.ru/moskva/catalog/lekarstva-i-bad/akusherstvo-i-ginekologiya/page-{page}/",
+  "item_link": "a.item-card-title-text, a.item-card-half-title-text",
+  "wait_css": "a.item-card-title-text, a.item-card-half-title-text"
+},
+    "item_page": {
+      "fields": {
+        "title": "h1.page-header-title, h1.product-detail-title",
+        "price": "span.price_value, div.price span.value",
+        "image": "meta[property='og:image']::attr(content)",
+        "sku": "span.sku, div.article span.value",
+        "description": "div.product-detail-text, div#tab-description"
+      }
+    }
+  }
+}
